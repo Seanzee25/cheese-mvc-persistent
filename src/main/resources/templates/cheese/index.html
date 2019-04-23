@@ -16,6 +16,7 @@
         <tr th:each="cheese : ${cheeses}">
             <td th:text="${cheese.name}"></td>
             <td th:text="${cheese.description}"></td>
+            <td><a class="btn btn-default" th:href="@{'/cheese/edit/' + ${cheese.cheeseId}}">Edit</a></td>
         </tr>
     </table>
 

@@ -2,19 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<h1 th:text="|Edit Cheese ${cheeseToEdit.name}(ID=${cheeseToEdit.cheeseId})|">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method="POST">
     <div class="form-group">
         <label for="name-field">Name</label>
-        <input class="form-control" type="Text" name="name" id="name-field"/>
+        <input class="form-control" type="Text" name="name" id="name-field" th:value="${cheeseToEdit.name}"/>
     </div>
     <div class="form-group">
         <label for="description-field">Description</label>
-        <input class="form-control" type="Text" name="description" id="description-field"/>
+        <input class="form-control" type="Text" name="description"
+               id="description-field" th:value="${cheeseToEdit.description}"/>
     </div>
+    <input type="hidden" th:value="${cheeseToEdit.cheeseId}" name="cheeseId"/>
     <input type="submit" value="Add Cheese"/>
 </form>
 
