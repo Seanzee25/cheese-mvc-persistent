@@ -1,17 +1,24 @@
 package org.launchcode.cheesemvc.models;
 
-import sun.util.calendar.BaseCalendar;
-import sun.util.calendar.LocalGregorianCalendar;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class User {
 
     private int userId;
     private static int nextId;
+
+    @NotNull
+    @Size(min=5, max=15, message="Username must be between 5 and 15 characters")
     private String username;
+
+    @NotNull
+    @Size(min=1, message="Required")
     private String email;
+
+    @NotNull
+    @Size(min=1, message="Required")
     private String password;
     private LocalDate joinDate;
 
