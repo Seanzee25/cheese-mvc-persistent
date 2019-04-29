@@ -10,7 +10,7 @@
     <form th:if="${cheeses} and ${cheeses.size()}" method="POST">
         <div class="checkbox" th:each="cheese : ${cheeses}">
             <label>
-                <input type="checkbox" th:value="${cheese.cheeseId}" name="cheeseIds"/>
+                <input type="checkbox" th:value="${cheese.id}" name="cheeseIds"/>
                 <span th:text="${cheese.name}"></span>
             </label>
         </div>
